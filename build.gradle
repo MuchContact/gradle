@@ -1,0 +1,20 @@
+ext {
+    group = 'tw'
+    version = "1.0.0"
+    main='com.tw.Main'
+    jerseyVersion = "2.22.1"
+}
+
+//COOL_APP_PRIVATE_KEY=COOL_APP_PRIVATE_KEY gradle retrieveEnvironment
+task retrieveEnvironment(){
+    print "${System.env.COOL_APP_PRIVATE_KEY}"
+}
+
+//gradle -q -PcommandLineProjectProp=commandLineProjectPropValue -Dorg.gradle.project.systemProjectProp=systemPropertyValue printProps
+task printProps << {
+    println commandLineProjectProp
+    println gradlePropertiesProp
+    println systemProjectProp
+    println envProjectProp
+    println System.properties['system']
+}
